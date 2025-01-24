@@ -70,24 +70,6 @@ struct HomeView: View {
     }
     
     
-    func resetButtonTapped() {
-        vm.taps = 0
-        vm.tapsPerMinute = nil
-        vm.timerText = "00:00"
-        vm.stopTimer()
-        vm.elapsedTime = 0
-    }
-    
-    func endButtonTapped() {
-        vm.endTime = Date()
-        vm.stopTimer()
-        vm.tapsPerMinute = vm.calculateAveragePerMinute()
-    }
-    
-    func startButtonTapped() {
-        vm.startTime = Date()
-        vm.startTimer()
-    }
 }
 
 #Preview {

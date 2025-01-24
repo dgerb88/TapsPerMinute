@@ -18,6 +18,9 @@ class HomeViewModel: ObservableObject {
     @Published var timer: Timer?
     @Published var elapsedTime = 0
     
+    
+    
+    
     func calculateAveragePerMinute() -> String {
         let timeInSeconds = endTime!.timeIntervalSince(startTime!)
         let tapsPerMinute = Double(taps * 60) / timeInSeconds
@@ -41,5 +44,27 @@ class HomeViewModel: ObservableObject {
         let minutes = elapsedTime / 60
         let seconds = elapsedTime % 60
         return String(format: "%02d:%02d", minutes, seconds)
+    }
+    
+    
+    
+    //MARK: User actions
+    func resetButtonTapped() {
+        taps = 0
+        tapsPerMinute = nil
+        timerText = "00:00"
+        stopTimer()
+        elapsedTime = 0
+    }
+    
+    func endButtonTapped() {
+        endTime = Date()
+        stopTimer()
+        tapsPerMinute = calculateAveragePerMinute()
+    }
+    
+    func startButtonTapped() {
+        startTime = Date()
+        startTimer()
     }
 }
