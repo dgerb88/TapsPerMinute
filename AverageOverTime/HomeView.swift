@@ -17,7 +17,7 @@ struct HomeView: View {
             HStack {
                 Spacer()
                 Button {
-                    startButtonTapped()
+                    vm.startButtonTapped()
                 } label: {
                     Text("Start")
                 }
@@ -27,7 +27,7 @@ struct HomeView: View {
                     .font(.title3)
                 Spacer()
                 Button {
-                    endButtonTapped()
+                    vm.endButtonTapped()
                 } label: {
                     Text("End")
                 }
@@ -58,7 +58,7 @@ struct HomeView: View {
             }
             .font(.title3)
             Button {
-                resetButtonTapped()
+                vm.resetButtonTapped()
             } label: {
                 Text("Reset")
             }
